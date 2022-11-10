@@ -20,4 +20,8 @@ public class Partida {
     public User getUser() {
         return null;
     }
+
+    public Item items() {
+        return null;
+    }
 }

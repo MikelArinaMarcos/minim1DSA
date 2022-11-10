@@ -2,13 +2,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Queue;
 
-public class GestorImpl implements Gestor {
+public class GestorImpl<Item> implements Gestor {
 
     public GestorImpl(){
         this.informacion = new HashMap<String, Info>();
     }
 
-    List<User> usuarios;
+    HashMap<String, User> usuarios;
     Queue<Partida> partidas;
     HashMap<String, Info> informacion;
 
@@ -35,7 +35,7 @@ public class GestorImpl implements Gestor {
      */
     @Override
     public List<User> usersByPoints() {
-        return this.usuarios;
+        return (List<User>) this.usuarios;
     }
 
     /**
@@ -68,6 +68,9 @@ public class GestorImpl implements Gestor {
         int q;
         for (Item i: p.items()){
             q = i.q;
+            usuarios = i.u;
+            
+            usuarios.numPartidas(q);
 
         }
     }
