@@ -2,15 +2,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Queue;
 
-public class GestorImpl<Item> implements Gestor {
+public class GestorImpl implements Gestor {
 
     public GestorImpl(){
         this.informacion = new HashMap<String, Info>();
     }
 
-    HashMap<String, User> usuarios;
+    List<User> usuarios;
     Queue<Partida> partidas;
     HashMap<String, Info> informacion;
+
+    @Override
+    public void addPartida(Partida p) {
+        
+    }
 
     /**
      * Creación de una nueva partida en la que se indica el identificador,
@@ -26,7 +31,7 @@ public class GestorImpl<Item> implements Gestor {
      * su nombre y el número de puntos que tiene.
      */
     public void addUser(String idUser, String name, int points){
-        this.usuarios.put(idUser, new User(idUser, name, points));
+        this.usuarios.set(Integer.parseInt(idUser), new User(idUser, name, points));
     }
 
     /**
@@ -35,7 +40,7 @@ public class GestorImpl<Item> implements Gestor {
      */
     @Override
     public List<User> usersByPoints() {
-        return (List<User>) this.usuarios;
+        return this.usuarios;
     }
 
     /**
@@ -65,13 +70,6 @@ public class GestorImpl<Item> implements Gestor {
     }
 
     private void procces(Partida p) {
-        int q;
-        for (Item i: p.items()){
-            q = i.q;
-            usuarios = i.u;
-            
-            usuarios.numPartidas(q);
-
-        }
+        
     }
 }

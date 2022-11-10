@@ -21,7 +21,7 @@ public class Partida {
         return null;
     }
 
-    public Item items() {
+    public Item[] items() {
         return null;
     }
 }
