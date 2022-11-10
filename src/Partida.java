@@ -16,4 +16,8 @@ public class Partida {
     public void addPartida(Partida p){
         this.usuarios.add(p);
     }
+
+    public User getUser() {
+        return null;
+    }
 }
