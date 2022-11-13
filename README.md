@@ -7,3 +7,9 @@ Implementada la interface general i les clases pertinents amb les mètodes corre
 Implementat el MAVEN i els tests pertinents.
 
 No està complet tot, però tot el que tinc funciona sense errors.
+
+********************************************
+AMPLIACIÓN DEL EXAMEN
+
+* Todas las operaciones pedidas en el enunciado están indicadas en el Gestor.java.
+* 
