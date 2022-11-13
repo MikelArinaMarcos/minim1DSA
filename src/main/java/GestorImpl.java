@@ -1,75 +1,60 @@
-import java.util.HashMap;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class GestorImpl implements Gestor {
 
-    public GestorImpl(){
-        this.informacion = new HashMap<String, Info>();
-    }
-
-    List<User> usuarios;
+    List<Juego> juegos;
     Queue<Partida> partidas;
-    HashMap<String, Info> informacion;
+    HashMap<String, Usuario> usuarios;
 
-    @Override
-    public void addPartida(Partida p) {
-        
+    public GestorImpl(){
+        this.juegos = new ArrayList<Juego>();
+        this.partidas = new LinkedList<>();
+        this.usuarios = new HashMap<String, Usuario>();
     }
 
-    /**
-     * Creación de una nueva partida en la que se indica el identificador,
-     * la descripción de la partida y el número de niveles.
-     */
+
     @Override
-    public void addPartida(String idPartida, String descripcion, String numNiveles) {
-        this.partidas.add(new Partida(idPartida, descripcion, numNiveles));
+    public void addJuego(String idJuego, String descripcion, String nivel) {
+        this.juegos.add(new Juego(idJuego, descripcion, nivel));
     }
 
-    /**
-     * Creación de un nuevo usuario en el que se indica su identificador,
-     * su nombre y el número de puntos que tiene.
-     */
-    public void addUser(String idUser, String name, int points){
-        this.usuarios.set(Integer.parseInt(idUser), new User(idUser, name, points));
+    @Override
+    public void addPartida(String idJuego, String idUsuario) {
+        this.partidas.add(new Partida(idJuego, idUsuario));
     }
 
-    /**
-     * Listado de los usuarios que han participado en una partida
-     * ordenados (descendientemente) por puntuación.
-     */
     @Override
-    public List<User> usersByPoints() {
-        return this.usuarios;
-    }
-
-    /**
-     * Listado de las partidas que ha jugado un usuario.
-     */
-    @Override
-    public List<Partida> partidasByUser(String idUser) {
+    public Usuario getNivel(String idUsuario) {
         return null;
     }
 
     @Override
-    public List<User> usersInformation() {
+    public Partida getPuntuacion(String idUsuario) {
         return null;
     }
 
     @Override
-    public Partida getPartida() {
-
-        Partida p = this.partidas.peek();
-        procces(p);
-
-        User user = p.getUser();
-
-        user.addPartida(p);
-
-        return p;
+    public Juego subirNivel(String idUsuario, Integer puntosConseguidos, String fecha) {
+        return null;
     }
 
-    private void procces(Partida p) {
-        
+    @Override
+    public Partida finPartida(String idUsuario) {
+        return null;
+    }
+
+    @Override
+    public List<Usuario> usuariosPorPuntos() {
+        return null;
+    }
+
+    @Override
+    public List<Partida> partidasPorUsuario(String idUsuario) {
+        return null;
+    }
+
+    @Override
+    public List<Usuario> informacionUsuario() {
+        return null;
     }
 }
